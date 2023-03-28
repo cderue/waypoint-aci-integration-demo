@@ -1,0 +1,4 @@
+image = "acrhugdevwe001.azurecr.io/comet/2048"
+tag   = "latest"
+resource_group_name = "rg-2048-prod-we-001"
+azure_region = "westeurope"

@@ -1,42 +1,32 @@
-variable "registry_username" {
+variable "image" {
   type = string
   default = ""
-  env = ["REGISTRY_USERNAME"]
 }
 
-variable "registry_password" {
-  type = string
-  sensitive = true
-  default = ""
-  env = ["REGISTRY_PASSWORD"]
-}
-
-variable "registry_imagename" {
+variable "tag" {
   type = string
   default = ""
-  env = ["REGISTRY_IMAGENAME"]
 }
 
-variable "aws_region" {
+variable "resource_group_name" {
   type = string
   default = ""
-  env = ["TF_VAR_region"]
 }
 
-project = "hc-lab-hat-hat-demo"
+variable "azure_region" {
+  type = string
+  default = ""
+}
 
-app "dev" {
+project = "2048"
+
+app "dev2048" {
   build {
     use "docker" {}
     registry {
       use "docker" {
-        image = "${var.registry_username}/${var.registry_imagename}"
-        tag = "dev"
-        local = false
-        auth {
-          username = var.registry_username
-          password = var.registry_password
-        }
+        image = var.image
+        tag = var.tag
       }
     }
   }
@@ -51,82 +41,28 @@ app "dev" {
   }
 }
 
-app "ecs" {
-  runner {
-    profile = "ecs-ECS-RUNNER"
-  }
+app "aci2048" {
 
   build {
     use "docker" {}
     registry {
       use "docker" {
-        image = "${var.registry_username}/${var.registry_imagename}"
-        tag = "testing"
-        local = false
-        auth {
-          username = var.registry_username
-          password = var.registry_password
-        }
+        image = var.image
+        tag = var.tag
       }
     }
   }
 
   deploy {
-    use "aws-ecs" {
-      service_port = 3000
-      static_environment = {
-        PLATFORM = "aws-ecs (ca-central)"
+    use "azure-container-instance" {
+      resource_group = var.resource_group_name
+      location       = var.azure_region
+      ports          = [3000]
+
+      capacity {
+        memory = "1024"
+        cpu_count = 4
       }
-      region = var.aws_region
-      memory = 512
     }
   }
 }
-
-// app "kubernetes" {
-//   runner {
-//     profile = "kubernetes-KUBE-RUNNER"
-//   }
-
-//   build {
-//     use "docker" {}
-//     registry {
-//       use "docker" {
-//         image = "${var.registry_username}/${var.registry_imagename}"
-//         tag = "testing"
-//         local = false
-//         auth {
-//           username = var.registry_username
-//           password = var.registry_password
-//         }
-//       }
-//     }
-//   }
-
-//   deploy {
-//     use "kubernetes" {
-//       probe_path = "/"
-//       service_port = 3000
-//       static_environment = {
-//         PLATFORM = "kubernetes (us-west)"
-//       }
-//       memory {
-//         request = "64Mi"
-//         limit   = "128Mi"
-//       }
-
-//       autoscale {
-//         min_replicas = 1
-//         max_replicas = 5
-//         cpu_percent = 20
-//       }
-//     }
-//   }
-
-//   release {
-//     use "kubernetes" {
-//       load_balancer = true
-//       port          = 3000
-//     }
-//   }
-// }
