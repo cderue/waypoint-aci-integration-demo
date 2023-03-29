@@ -31,3 +31,5 @@ $ export AZURE_CLIENT_SECRET="<Insert your Azure client secret>"
 ```console
 $ waypoint up
 ```
+
+## Verify the result
