@@ -5,6 +5,14 @@
 
 ## Prerequisites
 
+To learn how to use Waypoint to publish applications on Azure Container Instances, you must meet these prerequisites:
+
+- You have an access to a Microsoft Azure Subscription
+- Install PowerShell
+- Install Docker Desktop
+
+## Install Waypoint
+
 
 ## Create a Service Principal
 
