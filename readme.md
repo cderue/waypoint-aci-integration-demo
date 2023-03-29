@@ -3,6 +3,9 @@
 ## Introduction
 
 
+## Prerequisites
+
+
 ## Create a Service Principal
 
 An Azure service principal is an identity created for use with applications, hosted services, and automated tools to access Azure resources. This access is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
