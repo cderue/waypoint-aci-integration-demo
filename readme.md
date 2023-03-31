@@ -2,14 +2,17 @@
 
 ## Introduction
 
+The goal of this project is to provide knowledge to publish applications on Azure Container Instances with HashiCorp Waypoint.
 
 ## Prerequisites
 
 To learn how to use Waypoint to publish applications on Azure Container Instances, you must meet these prerequisites:
 
-- You have an access to a Microsoft Azure Subscription
-- Install PowerShell
+- Have an access to a Microsoft Azure Subscription
+- Install Azure PowerShell
 - Install Docker Desktop
+- Have an access to a Docker registry
+- Clone this repository locally
 
 ## Install Waypoint
 
@@ -32,6 +35,8 @@ $ export AZURE_SUBSCRIPTION_ID="<Insert your Azure subscription ID>"
 $ export AZURE_TENANT_ID="<Insert your Azure tenant ID>"
 $ export AZURE_CLIENT_ID="<Insert your Azure client ID"
 $ export AZURE_CLIENT_SECRET="<Insert your Azure client secret>"
+$ export REGISTRY_USERNAME="<Insert your Docker registry user name>"
+$ export REGISTRY_PASSWORD="<Insert your Docker registry password>"
 ```
 
 ## Publish with Waypoint
