@@ -16,6 +16,7 @@ To learn how to use Waypoint to publish applications on Azure Container Instance
 
 ## Install Waypoint
 
+You can install Waypoint on your operating system following the [Waypoint documentation](https://developer.hashicorp.com/waypoint/downloads)
 
 ## Create a Service Principal
 
