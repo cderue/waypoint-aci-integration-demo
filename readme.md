@@ -47,7 +47,7 @@ Run init to set up the project.
 
 ```console
 waypoint init
-
+```
 
 You'll see this output.
 
