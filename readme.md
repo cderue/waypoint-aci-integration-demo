@@ -14,11 +14,13 @@ To learn how to use Waypoint to publish applications on Azure Container Instance
 - Have an access to a Docker registry
 - Clone this repository locally
 
-## Install Waypoint
+## Installing Waypoint
 
 You can install Waypoint on your operating system following the [Waypoint documentation](https://developer.hashicorp.com/waypoint/downloads)
 
-## Create a Service Principal
+## Installing the Waypoint Server
+
+## Creating an Azure Service Principal
 
 An Azure service principal is an identity created for use with applications, hosted services, and automated tools to access Azure resources. This access is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
 
