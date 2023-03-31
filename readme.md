@@ -18,7 +18,15 @@ To learn how to use Waypoint to publish applications on Azure Container Instance
 
 You can install Waypoint on your operating system following the [Waypoint documentation](https://developer.hashicorp.com/waypoint/downloads)
 
-## Installing the Waypoint Server
+## Installing the Waypoint Server on Docker
+
+Start the Docker Desktop application.
+
+Install the Waypoint server to Docker with the install command. The -accept-tos flag is required to use the waypoint.run URL publishing service.
+
+```console
+$ waypoint install -platform=docker -accept-tos
+```
 
 ## Creating an Azure Service Principal
 
