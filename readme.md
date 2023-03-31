@@ -12,7 +12,6 @@ To learn how to use Waypoint to publish applications on Azure Container Instance
 - Install Azure PowerShell
 - Install Docker Desktop
 - Have an access to a Docker registry
-- Clone this repository locally
 
 ## Installing Waypoint
 
@@ -27,6 +26,30 @@ Install the Waypoint server to Docker with the install command. The -accept-tos 
 ```console
 $ waypoint install -platform=docker -accept-tos
 ```
+
+## Initializing Waypoint
+
+Clone this git repository, or download the code directly from GitHub.
+
+```console
+$ git clone https://github.com/cderue/waypoint-aci-integration-demo.git
+```
+
+Navigate to the app directory.
+
+```console
+$ cd waypoint-examples/docker/nodejs
+```
+
+All the code you need is provided in this directory, including a waypoint.hcl configuration file that will deploy the application to Azure Container Instances.
+
+Run init to set up the project.
+
+```console
+waypoint init
+
+
+You'll see this output.
 
 ## Creating an Azure Service Principal
 
